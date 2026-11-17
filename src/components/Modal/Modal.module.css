@@ -1,0 +1,23 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+}
+
+.modal { animation: fadeOut 0.3s ease forwards; }
+@keyframes fadeOut {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 576px) {
+  .modal {
+    padding: var(--space-2);
+  }
+}

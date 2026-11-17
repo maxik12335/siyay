@@ -1,0 +1,148 @@
+.container {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+.button {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 40px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  color: var(--color-w);
+  padding-bottom: 10px;
+  font-family: var(--font-family-sans);
+  text-decoration: none;
+  cursor: pointer;
+  /* Убираем любые эффекты при наведении, чтобы ничего не дергалось */
+  transition: none;
+}
+
+
+.img {
+  max-width: 80%;
+  max-height: 80%;
+  min-height: 0;
+  min-width: 0;
+  border-radius: var(--radius-base);
+  object-fit: contain;
+  flex: 1;
+}
+
+.buttonActive {
+  color: rgba(245, 247, 250, 0.4);
+  border-bottom-color: rgba(245, 247, 250, 0.4);
+}
+
+.list {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  scroll-margin-top: 200px;
+}
+
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.list__item:hover {
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text);
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  gap: var(--space-2);
+}
+
+.price {
+  width: 60px;
+  font-weight: 300;
+}
+
+.time {
+  width: 60px;
+  font-weight: 300;
+}
+
+.modalContent {
+  max-height: 80vh;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.texts {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-8);
+  color: white;
+}
+
+.header {
+  display: grid;
+  gap: var(--space-1);
+}
+
+@media (max-width: 980px) {
+
+}
+
+@media (max-width: 768px) {
+  .list {
+    gap: var(--space-4);
+  }
+
+  .list__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .modalContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .img {
+    min-height: 80%;
+  }
+
+  .texts {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .buttons {
+    gap: var(--space-2);
+  }
+
+  .button {
+    font-size: 16px;
+    line-height: 100%;
+  }
+
+  .img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
