@@ -25,6 +25,14 @@
   text-transform: lowercase;
 }
 
+.links {
+  color: var(--color-text);
+}
+
+.imgMedia {
+  width: 30px;
+  height: 30px;
+}
 
 @media (max-width: 1200px) {
  

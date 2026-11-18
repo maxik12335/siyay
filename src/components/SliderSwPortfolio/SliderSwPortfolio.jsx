@@ -25,11 +25,6 @@ import classes from './SliderSwPortfolio.module.css'
 // }
 // slidesPerGroup: 3 - кол-во прокруток за раз
 
-
-// images list
-import portfolio_1 from '../../assets/images/portfolio/portfolio_1.jpg';
-import portfolio_2 from '../../assets/images/portfolio/portfolio_2.jpg';
-import portfolio_3 from '../../assets/images/portfolio/portfolio_3.jpg';
 import { manikurList } from '../../data/price'
 
 const list = manikurList

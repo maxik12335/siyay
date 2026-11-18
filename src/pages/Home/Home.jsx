@@ -7,6 +7,11 @@ import SliderSwFeedback from '../../components/SliderSwFeedback/SliderSwFeedback
 import SliderSwPortfolio from '../../components/SliderSwPortfolio/SliderSwPortfolio';
 import Btn from '../../components/UI/Btn/Btn'
 import mainImg from '../../assets/main.png'
+import Close from '../../components/UI/Close/Close';
+import Modal from '../../components/Modal/Modal';
+import wp from '../../assets/media/wp.png'
+import tg from '../../assets/media/tg.png'
+import { useState } from 'react';
 
   // { href: '/', label: 'главная' },
   // { href: '/feecbacks', label: 'отзывы' },
@@ -14,6 +19,7 @@ import mainImg from '../../assets/main.png'
   // { href: '/price', label: 'цены' },
   // { href: '/contacts', label: 'контакты' },
 const Home = () => {
+  const [isOpen, setIsOpen] = useState(null);
   return (
     <div className="body">
       <section className="section line-dark" id='main'>
@@ -22,14 +28,28 @@ const Home = () => {
             <div className={classes.header}>
               <h1 className="h1">Сияй</h1>
               <h2 className="text-base">Ногтевая студия</h2>
-              <Btn isColor='dark' size='sm' style={{marginTop: "20px"}}>записаться</Btn>
+              <Btn isColor='dark' size='sm' style={{marginTop: "20px"}} onClick={() => setIsOpen(true)}>записаться</Btn>
             </div>
             <img className={classes.mainImg} src={mainImg} alt="main" />
           </div>
-          {/* <div className="content-down">
-            <a className="text-base hover" href="tel:+79771042821">+7 977 104 28 21</a>
-            
-          </div> */}
+          {isOpen &&
+              <Modal>
+                <Close onClick={() => setIsOpen(false)}/>
+                <div className={classes.links}>
+                  <Btn href='tel:+79771042821' target="_self">
+                    +7 977 104 28 21
+                  </Btn>
+                  <Btn href='https://wa.me/79771042821'>
+                    <img className={classes.imgMedia} src={wp} alt="watsapp" />
+                    WatsApp
+                  </Btn>
+                  <Btn href='https://telegram.me/Shine_nail_studio'>
+                    <img className={classes.imgMedia} src={tg} alt="telegram" />
+                    Telegram
+                  </Btn>
+                </div>
+              </Modal>
+            }
         </div>
       </section>
 
