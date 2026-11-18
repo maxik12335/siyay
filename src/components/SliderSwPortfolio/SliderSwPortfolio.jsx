@@ -42,10 +42,10 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
         modules={[Autoplay, Grid]}
         navigation
         rewind={true}
-        // autoplay={{
-        //   delay: 4000, // интервал в мс (3 сек)
-        //   disableOnInteraction: false, // автопрокрутка возобновляется после ручного переключения
-        // }}
+        autoplay={{
+          delay: 4000, // интервал в мс (3 сек)
+          disableOnInteraction: false, // автопрокрутка возобновляется после ручного переключения
+        }}
         slidesPerView={1}
         spaceBetween={16}
         className={classes.swiper}
