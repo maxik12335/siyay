@@ -53,12 +53,6 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section line-dark" id='feedbacks' style={{position: 'relative'}}>
-        <div className="container">
-          <SliderSwFeedback isModal={false}/>
-        </div>
-      </section>
-
       <section className="section line-dark" id='portfolio' style={{position: 'relative'}}>
         <div className="container">
           <SliderSwPortfolio />
@@ -68,6 +62,12 @@ const Home = () => {
       <section className="section line-dark" id='price'>
         <div className="container">
           <Price />
+        </div>
+      </section>
+
+      <section className="section line-dark" id='feedbacks' style={{position: 'relative'}}>
+        <div className="container">
+          <SliderSwFeedback isModal={false}/>
         </div>
       </section>
 

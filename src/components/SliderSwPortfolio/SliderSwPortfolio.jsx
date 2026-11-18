@@ -42,10 +42,10 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
         modules={[Autoplay, Grid]}
         navigation
         rewind={true}
-        autoplay={{
-          delay: 3000, // интервал в мс (3 сек)
-          disableOnInteraction: false, // автопрокрутка возобновляется после ручного переключения
-        }}
+        // autoplay={{
+        //   delay: 4000, // интервал в мс (3 сек)
+        //   disableOnInteraction: false, // автопрокрутка возобновляется после ручного переключения
+        // }}
         slidesPerView={1}
         spaceBetween={16}
         className={classes.swiper}
@@ -55,8 +55,17 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
             // < 576px — 1 слайд, отступы те же
             0: {
               slidesPerView: 3,
-              slidesPerGroup: 3,
-              spaceBetween: 5,
+              slidesPerGroup: 2,
+              spaceBetween: 10,
+              grid: {
+                rows: 3,          // сколько рядов
+                fill: 'row',      // заполняем по строкам (слева направо)
+              }
+            },
+            576: {
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+              spaceBetween: 15,
               grid: {
                 rows: 2,          // сколько рядов
                 fill: 'row',      // заполняем по строкам (слева направо)
@@ -64,15 +73,23 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
             },
             // 768px — 2 слайда
             768: {
-              slidesPerView: 2,
+              slidesPerView: 3,
               slidesPerGroup: 2,
-              spaceBetween: 24,
+              spaceBetween: 15,
+              grid: {
+                rows: 2,          // сколько рядов
+                fill: 'row',      // заполняем по строкам (слева направо)
+              }
             },
             // 992px — 3 слайда (можно оставить как дефолт)
             992: {
               slidesPerView: 3,
               slidesPerGroup: 2,
-              spaceBetween: 20,
+              spaceBetween: 15,
+              grid: {
+                rows: 2,          // сколько рядов
+                fill: 'row',      // заполняем по строкам (слева направо)
+              }
             },
           }}
       >
@@ -81,9 +98,19 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
             <img src={src.img} alt={`Фото ${i + 1}`} onClick={() => setIsOpen(src)}/>
           </SwiperSlide>
         ))}
+        {images.map((src, i) => (
+          <SwiperSlide key={i}>
+            <img src={src.img} alt={`Фото ${i + 1}`} onClick={() => setIsOpen(src)}/>
+          </SwiperSlide>
+        ))}
+        {images.map((src, i) => (
+          <SwiperSlide key={i}>
+            <img src={src.img} alt={`Фото ${i + 1}`} onClick={() => setIsOpen(src)}/>
+          </SwiperSlide>
+        ))}
       </Swiper>
       {/* Блок со стрелками внизу экрана */}
-      <div className={classes.buttons_box}>
+      {/* <div className={classes.buttons_box}>
         <button
           className={classes.button}
           onClick={() => swiper?.slidePrev()}
@@ -103,7 +130,7 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
             <path d="M 375.5 175 Q 382.9 174.1 386.5 177 L 510 249.5 Q 512.8 252.2 512 258.5 L 507.5 265 L 386.5 335 Q 383.2 338.2 375.5 337 L 370 332.5 L 369 323.5 L 374.5 317 L 461 267.5 L 10.5 267 L 6.5 266 L 2 262.5 Q -0.8 259.8 0 253.5 L 3.5 248 L 11.5 245 L 461 244.5 L 377.5 197 L 370 190.5 L 369 181.5 L 373.5 176 L 375.5 175 Z " />
           </svg>
         </button>
-      </div>
+      </div> */}
 
       {thumbs && 
         <div className={classes.thumbs}>
