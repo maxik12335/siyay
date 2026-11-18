@@ -1,6 +1,5 @@
 import classes from './Contacts.module.css'
 
-import image_map from '../../assets/images/contacts/map.jpg';
 import wp from '../../assets/media/wp.png'
 import tg from '../../assets/media/tg.png'
 

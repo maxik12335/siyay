@@ -27,7 +27,6 @@
   opacity: var(--color-hover-opacity);
 }
 
-
 .dark {
   background-color: var(--color-btn-bg);
   color: var(--color-btn-text);

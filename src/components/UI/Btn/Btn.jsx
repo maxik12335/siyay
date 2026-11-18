@@ -1,7 +1,7 @@
 import classes from './Btn.module.css'
 import { NavLink } from 'react-router-dom';
 
-const Btn = ({children, isColor='', size='md', to, href, active, ...props}) => {
+const Btn = ({children, isColor='', size='md', to, href, active, className, ...props}) => {
 
   const STYLES = {
     dark: classes.dark,
@@ -15,6 +15,7 @@ const Btn = ({children, isColor='', size='md', to, href, active, ...props}) => {
   }
 
   const cls = [
+    className,
     classes.btn,
     STYLES[isColor],
     SIZES[size],

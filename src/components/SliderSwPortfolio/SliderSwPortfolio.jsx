@@ -54,7 +54,7 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
         breakpoints={{
             // < 576px — 1 слайд, отступы те же
             0: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               slidesPerGroup: 2,
               spaceBetween: 10,
               grid: {

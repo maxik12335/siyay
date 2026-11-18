@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.container {
+  justify-content: flex-start;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -67,5 +71,7 @@
 }
 
 @media (max-width: 576px) {
-
+  .content {
+    padding: var(--space-8) var(--space-2);
+  }
 }

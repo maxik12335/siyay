@@ -27,7 +27,7 @@ const Home = () => {
           <div className={classes.content}>
             <div className={classes.header}>
               <h1 className="h1">Сияй</h1>
-              <h2 className="text-base">Ногтевая студия</h2>
+              <h2 className="text-base">студия маникюра в Москве</h2>
               <Btn isColor='dark' size='sm' style={{marginTop: "20px"}} onClick={() => setIsOpen(true)}>записаться</Btn>
             </div>
             <img className={classes.mainImg} src={mainImg} alt="main" />
@@ -60,7 +60,7 @@ const Home = () => {
       </section>
 
       <section className="section line-dark" id='price'>
-        <div className="container">
+        <div className={`${classes.container} container`}>
           <Price />
         </div>
       </section>
