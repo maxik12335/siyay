@@ -3,11 +3,6 @@
   color: var(--color-text);
 }
 
-/* .section:nth-child(2n) {
-  background-color: rgba(211, 210, 210, 0.747);
-  color: var(--color-background);
-} */
-
 .section::selection {
   background-color: var(--color-background-dark);
   color: var(--color-text-dark);

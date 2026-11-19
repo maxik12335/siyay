@@ -17,6 +17,10 @@ const SliderSwFeedback = ({ list = feedbacks }) => {
   const [swiper, setSwiper] = useState(null)
   const [active, setActive] = useState(0)
 
+  const truncate = (str, max = 150) =>
+  str.length > max ? str.slice(0, max).trimEnd() + '…' : str
+
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
@@ -34,7 +38,9 @@ const SliderSwFeedback = ({ list = feedbacks }) => {
       >
         {list.map((feedback, i) => (
           <SwiperSlide key={i}>
-            <p className={`${classes.slide} line-dark text-base`}>{feedback.feedback}</p>
+            <p className={`${classes.slide} line-dark text-base`}>
+              {truncate(feedback.feedback)}
+            </p>
             <div className={classes.texts}>
               <p className='text-sm'>{feedback.name}</p>
               <p className='text-sm'>{feedback.date}</p>

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Grid } from 'swiper/modules'
 import Modal from '../../components/Modal/Modal'
 import Close from '../../components/UI/Close/Close'
+import Btn from '../../components/UI/Btn/Btn'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -25,17 +26,18 @@ import classes from './SliderSwPortfolio.module.css'
 // }
 // slidesPerGroup: 3 - кол-во прокруток за раз
 
-import { manikurList } from '../../data/price'
+import { manikurList, pedicurList, spaList } from '../../data/price'
 
-const list = manikurList
+const list = [...manikurList, ...pedicurList, ...spaList]
 
 // УСТАНОВИТЬ: npm install swiper@14.4.0
 
 const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) => {
   const [isOpen, setIsOpen] = useState(null)
+  const [isOpenAll, setIsOpenAll] = useState(null)
   const [swiper, setSwiper] = useState(null)
   const [active, setActive] = useState(0)
-
+  console.log(images)
   return (
     <div className={classes.wrapper}>
       <Swiper
@@ -58,7 +60,7 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
               slidesPerGroup: 2,
               spaceBetween: 10,
               grid: {
-                rows: 3,          // сколько рядов
+                rows: 2,          // сколько рядов
                 fill: 'row',      // заполняем по строкам (слева направо)
               }
             },
@@ -76,20 +78,12 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
               slidesPerView: 3,
               slidesPerGroup: 2,
               spaceBetween: 15,
-              grid: {
-                rows: 2,          // сколько рядов
-                fill: 'row',      // заполняем по строкам (слева направо)
-              }
             },
             // 992px — 3 слайда (можно оставить как дефолт)
             992: {
               slidesPerView: 3,
               slidesPerGroup: 2,
               spaceBetween: 15,
-              grid: {
-                rows: 2,          // сколько рядов
-                fill: 'row',      // заполняем по строкам (слева направо)
-              }
             },
           }}
       >
@@ -109,6 +103,8 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <Btn isColor='dark' onClick={() => setIsOpenAll(true)}>работы</Btn>
       {/* Блок со стрелками внизу экрана */}
       {/* <div className={classes.buttons_box}>
         <button
@@ -144,6 +140,17 @@ const SliderSwPortfolio = ({ images = list, thumbs = false, isModal = true }) =>
             />
           ))}
         </div>
+      }
+
+      {isModal && isOpenAll &&
+        <Modal>
+          <Close onClick={() => setIsOpenAll(null)} />
+          <div className={classes.modalImages}>
+            {images.map((src) => (
+              <img className={classes.modalImage} src={src.img} alt="" onClick={() => setIsOpen(src)} />
+            ))} 
+          </div>
+        </Modal>
       }
 
       {isModal && isOpen &&
